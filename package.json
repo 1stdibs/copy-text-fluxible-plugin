@@ -21,7 +21,7 @@
     "pre-commit": "^1.1.2"
   },
   "dependencies": {
-    "copy-text": "^1.1.0",
+    "copy-text": "^2.0.1",
     "lodash.assign": "^3.2.0"
   },
   "peerDependencies": {
