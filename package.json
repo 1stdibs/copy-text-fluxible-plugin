@@ -1,6 +1,6 @@
 {
   "name": "fluxible-plugin-copy-text",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Fluxible plugin for using copy-text as a context method",
   "author": "1stdibs.com, Inc.",
   "scripts": {
