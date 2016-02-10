@@ -10,6 +10,7 @@ module.exports = {
             var ownCopy = copy;
             context.getCopy = function (key) { return ownCopy.get(key); };
             context.extendCopy = function (morecopy) { ownCopy = copy.extend(morecopy); };
+            context.useCopy = function (copytext) { ownCopy = copytext; };
         };
         return {
             plugComponentContext: plug,
