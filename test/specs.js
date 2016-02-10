@@ -11,10 +11,10 @@ describe('copy-text-fluxible-plugin', function () {
     });
     it('should plug each type of context with same extending function', function () {
         ['plugComponentContext', 'plugActionContext', 'plugStoreContext']
-            .forEach(function(ctx) {
+            .forEach(function (ctx) {
                 assert(typeof plugs[ctx] === 'function');
             });
-        assert(plugs.plugComponentContext === plugs.plugActionContext 
+        assert(plugs.plugComponentContext === plugs.plugActionContext
             && plugs.plugActionContext === plugs.plugStoreContext);
     });
     it('should be able to get globally set copy', function () {
@@ -31,5 +31,14 @@ describe('copy-text-fluxible-plugin', function () {
         actionContext.extendCopy({ copyKeyTwo: 'moreCopy' });
         assert(actionContext.getCopy('copyKeyTwo') === 'moreCopy');
         assert(componentContext.getCopy('copyKeyTwo') === 'copyKeyTwo');
+    });
+    it('should be able to take a copytext and use that for a given context', function () {
+        var actionContext = {};
+        var componentContext = {};
+        var copytext = copyText().extend({ someNewCopy: 'yayy' });
+        plugs.plugActionContext(actionContext);
+        plugs.plugComponentContext(componentContext);
+        actionContext.useCopy(copytext);
+        assert(actionContext.getCopy('someNewCopy') === 'yayy');
     });
 });
